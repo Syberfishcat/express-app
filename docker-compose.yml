@@ -6,10 +6,11 @@ services:
       - "8080:8080"
     restart: unless-stopped
 
+services:
   watchtower:
-    image: containrrr/watchtower:latest
-    container_name: watchtower
+    image: nickfedor/watchtower
+    environment:
+      -  WATCHTOWER_POLL_INTERVAL=60 <em># Poll every 60 seconds</em>
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock
-    command: --interval 30 --cleanup express-app
-    restart: unless-stopped
+    container_name: watchtower
