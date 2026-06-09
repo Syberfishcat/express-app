@@ -28,4 +28,4 @@ jobs:
           context: .
           push: true
           platforms: linux/amd64,linux/arm64
-          tags: sybercat/express-app:latest
+          tags: ${{ secrets.DOCKERHUB_USERNAME }}/express-app:latest
